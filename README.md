@@ -1,7 +1,10 @@
 # Spatial Inference Benchmark code
 
-Simple code that evaluates a model's responses for a set of queries (binary, multiclass or multilabel classification) against their corresponding truths.
+Code that evaluates a model's responses for a set of queries (binary, multiclass or multilabel classification) against their corresponding truths.
 
+The question datasets are in the ```datasets/``` directory and were created from the TIGER 2015 collection from [SpatialHadoop](https://spatialhadoop.cs.umn.edu/datasets.html). The [SpaTex](https://github.com/ThanGeo/SpaTex---Spatial-To-Text-data-toolkit) tool was used to compute the topological relations between the input spatial data and generate RDF triplets, from which the questions were created (todo: add scripts for question-generation).
+
+The HuggingFace Dataset card can be found [here](https://huggingface.co/datasets/Rammen/SpatialReasoning).
 
 # Model Scores
 
