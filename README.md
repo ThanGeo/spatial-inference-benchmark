@@ -24,7 +24,7 @@ To reproduce the results shown in **Figure 6**, run:
 To evaluate a specific model:
 
 ```bash
-python3 evaluate.py \
+python3 src/evaluate.py \
   -response_path "<response_file_path>" \
   -label_type [MULTILABEL | BINARY | MULTICLASS]
 ```
@@ -76,7 +76,7 @@ To collect model responses, use the provided `getResponses.py` script:
 ### Example:
 
 ```bash
-python3 getResponses.py \
+python3 src/getResponses.py \
   -query_dataset_path datasets/spatial_reasoning.csv \
   -query_result_path responses.csv \
   -model mistralai/Mistral-7B-Instruct
@@ -113,7 +113,7 @@ The supported relations that may exist in the input RDF file are the following:
 We provide the RDF that we generated using SpaTex, that was used to generate our benchmark questions.
 
 ```bash
-python3 generateQuestionsFromRDF.py \
+python3 src/generateQuestionsFromRDF.py \
   -input datasets/CSZt.nt \
   -num 1000 \
   -output questions_1000.csv
