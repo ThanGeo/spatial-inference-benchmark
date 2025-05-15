@@ -1,4 +1,4 @@
-# 🧠 Spatial Inference Benchmark
+# The Spatial Inference Benchmark
 
 This repository contains code to evaluate a model’s responses to spatial reasoning queries — including **binary**, **multiclass**, and **multilabel** classification — against ground truth labels.
 
