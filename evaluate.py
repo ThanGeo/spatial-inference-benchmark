@@ -10,7 +10,7 @@ class bcolors:
 
 def evaluate_multilabel(df):
     """Evaluate multilabel checkbox responses (truth/response columns)"""
-    # Clean and prepare - convert to sets of uppercase letters
+    # Clean and prepare
     y_true = df['truth'].str.replace(' ', '').str.split(',')
     y_pred = df['response'].str.replace(' ', '').str.split(',')
 
