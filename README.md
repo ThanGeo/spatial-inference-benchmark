@@ -6,8 +6,7 @@ This repository contains code to evaluate a model’s responses to spatial reaso
 
 Datasets are located in the `datasets/` directory and were created using the **TIGER 2015** collection from [SpatialHadoop](https://spatialhadoop.cs.umn.edu/datasets.html).
 
-We used the [SpaTex](https://github.com/ThanGeo/SpaTex---Spatial-To-Text-data-toolkit) toolkit to compute topological relations from spatial data and generate RDF triplets, which were then converted into natural language questions.  
-_(TODO: Add scripts for question generation.)_
+We used the [SpaTex](https://github.com/ThanGeo/SpaTex---Spatial-To-Text-data-toolkit) toolkit to compute topological relations from spatial data and generate RDF triplets, which were then converted into natural language questions. We have included the RDF source file (`CSZt.nt`) that we generated and used for the question generation in the `datasets/` directory.
 
 🗃️ You can also find our dataset on Hugging Face:  
 👉 [huggingface.co/datasets/Rammen/SpatialReasoning](https://huggingface.co/datasets/Rammen/SpatialReasoning)
@@ -84,6 +83,41 @@ python3 getResponses.py \
 ```
 
 ---
+
+## ❓ Generating Questions
+
+We offer a way to generate spatial reasoning questions from RDF triplets regarding spatial entities and their topological relations. The code in ```generateQuestionsFromRDF.py``` takes the following inputs:
+
+### Required Arguments:
+- `-input` : a .nt file containing spatial RDF triplets.
+- `-num` : the number of questions to generate.
+
+### Optional:
+- `-output` : the file to write the generated questions to (default `output.csv`).
+- `-yesno` : percentage of yes/no questions in the generated set (default 0.33).
+- `-radio` : percentage of radio questions in the generated set (default 0.33).
+- `-checkbox` : percentage of checkbox questions in the generated set (default 0.34).
+
+In order to disable a specific question type from being used, set its value to 0. Note that the values of `-yesno`, `-radio` and `-checkbox` must add up to 1. 
+
+### Supported Relations
+The supported relations that may exist in the input RDF file are the following:
+
+- (adjacent to and) north/south/west/east/
+- (adjacent to and) northeast/northwest/southeast/southwest
+- inside
+- contains
+- intersects
+
+### Example:
+We provide the RDF that we generated using SpaTex, that was used to generate our benchmark questions.
+
+```bash
+python3 generateQuestionsFromRDF.py \
+  -input datasets/CSZt.nt \
+  -num 1000 \
+  -output questions_1000.csv
+```
 
 ## 📝 License
 
