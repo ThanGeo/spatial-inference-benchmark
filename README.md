@@ -18,7 +18,7 @@ We used the [SpaTex](https://github.com/ThanGeo/SpaTex---Spatial-To-Text-data-to
 To reproduce the results shown in **Figure 6**, run:
 
 ```bash
-./scores.sh
+./scripts/scores.sh
 ```
 
 To evaluate a specific model:
