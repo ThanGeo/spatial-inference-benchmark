@@ -31,6 +31,8 @@ def evaluate_multilabel(df):
 
 def evaluate_binary(df):
     """Evaluate binary responses (truth/prediction columns)"""
+    # Filter only 'yes'/'no' responses
+    df = df[df['truth'].isin(['yes', 'no']) & df['response'].isin(['yes', 'no'])]
     # Clean and prepare
     y_true = df['truth']
     y_pred = df['response']
